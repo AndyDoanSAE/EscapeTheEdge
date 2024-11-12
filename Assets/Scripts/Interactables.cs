@@ -4,36 +4,42 @@ using UnityEngine;
 
 public class Interactables : MonoBehaviour
 {   
-    [SerializeField] private PlayerCamera player;
-
-    [SerializeField] private string cameraTag;
+    // [SerializeField] private string cameraTag;
 
     public bool isActive;
     public bool isSelected;
-
-    public Vector3 destination;
-
-    private Renderer itemRender;
+    
+    // private Renderer itemRender;
+    private Outline outline;
 
     private void Awake()
     {
         isActive = false;
         isSelected = false;
+        
+        outline = gameObject.AddComponent<Outline>();
+        outline.enabled = false;
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindWithTag(cameraTag).GetComponent<PlayerCamera>();
-        itemRender = GetComponent<Renderer>();
+        // itemRender = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (isSelected || isActive)
-            itemRender.material.SetColor("_BaseColor", Color.white);
+        if (isActive)
+        {
+            outline.enabled = false;
+        }
+        else if (isSelected)
+        {
+            outline.enabled = true;
+            outline.OutlineMode = Outline.Mode.OutlineAll;
+        }
         else
-            itemRender.material.SetColor("_BaseColor", Color.red);
+            outline.enabled = false;
     }
 }

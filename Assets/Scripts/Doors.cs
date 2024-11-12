@@ -9,14 +9,14 @@ public class Doors : MonoBehaviour
     public int activeButtons;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         canOpen = false;
         activeButtons = 0;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (activeButtons == criteria.Count)
             canOpen = true;

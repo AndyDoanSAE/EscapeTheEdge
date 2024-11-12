@@ -6,7 +6,7 @@ public class Keys : MonoBehaviour
 {
     public string keyID;
 
-    [SerializeField] private PlayerCamera player;
+    [SerializeField] private PlayerInteraction player;
 
     [SerializeField] private string cameraTag;
 
@@ -22,7 +22,7 @@ public class Keys : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        player = GameObject.FindWithTag(cameraTag).GetComponent<PlayerCamera>();
+        player = GameObject.FindWithTag(cameraTag).GetComponent<PlayerInteraction>();
         itemRender = GetComponent<Renderer>();
     }
 

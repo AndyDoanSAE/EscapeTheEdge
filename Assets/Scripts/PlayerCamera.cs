@@ -15,25 +15,18 @@ public class PlayerCamera : MonoBehaviour
 
     [Header("Key Binds")]
     [SerializeField] private KeyCode unlockCursorKey;
-    [SerializeField] private KeyCode interactionKey;
     
-    [Header("Settings")]
+    [Header("Configuration")]
     [SerializeField] private float sensitivity;
     [SerializeField] private float smoothing;
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
-    [SerializeField] private float interactDistance;
-
-    public bool canInteract;
     
+    [Header("Settings")]
     [SerializeField] private string mInputX;
     [SerializeField] private string mInputY;
-    [SerializeField] private string itemTag;
-    [SerializeField] private string doorTag;
     
     [SerializeField] private Transform player;
-    [SerializeField] private Interactables interactTarget;
-    [SerializeField] private Doors doorTarget;
 
     // Start is called before the first frame update
     private void Start()
@@ -46,8 +39,6 @@ public class PlayerCamera : MonoBehaviour
     {
         MouseMovement();
         CursorLock();
-        Interaction();
-        //Interact();
     }
 
     /// <summary>
@@ -58,10 +49,10 @@ public class PlayerCamera : MonoBehaviour
     /// </remarks>
     private void MouseMovement()
     {
+        var mouse = new Vector2(Input.GetAxisRaw(mInputX), Input.GetAxisRaw(mInputY));
+        
         if (Cursor.lockState == CursorLockMode.Locked)
         {
-            var mouse = new Vector2(Input.GetAxisRaw(mInputX), Input.GetAxisRaw(mInputY));
-
             mouse = Vector2.Scale(mouse, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
             mouseSmoothing.x = Mathf.Lerp(mouseSmoothing.x, mouse.x, 1f / smoothing);
             mouseSmoothing.y = Mathf.Lerp(mouseSmoothing.y, mouse.y, 1f / smoothing);
@@ -92,79 +83,4 @@ public class PlayerCamera : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
-
-    private void Interaction()
-    {
-        Debug.DrawRay(transform.position, transform.forward * interactDistance, Color.red);
-
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitObject, interactDistance))
-        {
-            Debug.Log("Item in range");
-
-            if (hitObject.transform.gameObject.CompareTag(itemTag))
-            {
-                interactTarget = hitObject.transform.gameObject.GetComponent<Interactables>();
-                canInteract = true;
-                interactTarget.isSelected = true;
-
-                if (canInteract)
-                {
-                    if (Input.GetKeyDown(interactionKey))
-                    {
-                        Debug.Log("Weeeeeeeee");
-                        //player.transform.position = interactTarget.destination;
-                        interactTarget.isActive = true;
-                    }
-                }
-            }
-            /*else 
-            {
-                interactTarget.isSelected = false;
-                interactTarget = null;
-                canInteract = false;
-            }*/
-
-            if (hitObject.transform.gameObject.CompareTag(doorTag))
-            {
-                doorTarget = hitObject.transform.gameObject.GetComponent<Doors>();
-                canInteract = true;
-
-                if (canInteract)
-                {
-                    if (Input.GetKeyDown(interactionKey))
-                    {
-                        Debug.Log("Trying to open the door");
-                        doorTarget.Activation();
-                    }
-                }
-            }
-        }
-        else 
-        {
-            if (interactTarget)
-            {
-                interactTarget.isSelected = false;
-                interactTarget = null;
-            }
-
-            if (doorTarget)
-            {
-                doorTarget = null;
-            }
-
-            canInteract = false;
-        }
-    }
-
-    /*private void Interact()
-    {
-        if (canInteract)
-        {
-            if (Input.GetKeyDown(interactionKey) && interactTarget.gameObject.CompareTag(buttonTag))
-            {
-                Debug.Log("Weeeeeeeee");
-                player.transform.position = interactTarget.destination;
-            }
-        }
-    }*/
 }
