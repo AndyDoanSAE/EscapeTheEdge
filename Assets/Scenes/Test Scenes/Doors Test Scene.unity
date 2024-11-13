@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 103020872}
   m_Layer: 0
   m_Name: Key
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,8 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   isSelected: 0
-  keyID: 
-  player: {fileID: 0}
+  keyID: Yellow_Key
 --- !u!54 &103020873
 Rigidbody:
   m_ObjectHideFlags: 0
