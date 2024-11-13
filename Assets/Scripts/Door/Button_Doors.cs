@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonDoor : Doors
+public class Button_Doors : Doors
 {
     [SerializeField] private List<Interactables> criteria = new List<Interactables>();
     [SerializeField] private int activeButtons;
 
     // Start is called before the first frame update
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
         activeButtons = 0;
     }
 
     // Update is called once per frame
-    public override void Update()
+    protected override void Update()
     {
         base.Update();
         if (activeButtons == criteria.Count)

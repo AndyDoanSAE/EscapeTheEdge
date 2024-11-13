@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerCamera : MonoBehaviour
+public class Player_Camera : MonoBehaviour
 {
     /// <summary>
     /// The PlayerCamera class handles the camera movement and cursor locking for the player.

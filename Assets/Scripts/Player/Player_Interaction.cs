@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class Player_Interaction : MonoBehaviour
 {
     [Header("Tags")]
     [SerializeField] private string itemTag;
@@ -43,7 +43,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     if (Input.GetKeyDown(interactionKey))
                     {
-                        Debug.Log("Weeeeeeeee");
+                        Debug.Log(gameObject + " is active");
                         //player.transform.position = interactTarget.destination;
                         interactTarget.isActive = true;
                     }
@@ -53,6 +53,7 @@ public class PlayerInteraction : MonoBehaviour
             if (hitObject.transform.gameObject.CompareTag(doorTag))
             {
                 doorTarget = hitObject.transform.gameObject.GetComponent<Doors>();
+                doorTarget.isSelected = true;
                 canInteract = true;
 
                 if (canInteract)
@@ -75,6 +76,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (doorTarget)
             {
+                doorTarget.isSelected = false;
                 doorTarget = null;
             }
 
