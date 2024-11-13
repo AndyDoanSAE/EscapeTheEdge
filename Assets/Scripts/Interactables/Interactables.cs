@@ -35,6 +35,10 @@ public class Interactables : MonoBehaviour
 
     protected virtual void Selected()
     {
-        outline.enabled = isSelected;
+        // outline.enabled = isSelected;
+        if (isSelected)
+            outline.enabled = true;
+        else
+            outline.enabled = false;
     }
 }

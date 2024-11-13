@@ -41,10 +41,10 @@ public class Player_Interaction : MonoBehaviour
 
                 if (canInteract)
                 {
+                    Debug.Log(gameObject + " is interactable");
                     if (Input.GetKeyDown(interactionKey))
                     {
                         Debug.Log(gameObject + " is active");
-                        //player.transform.position = interactTarget.destination;
                         interactTarget.isActive = true;
                     }
                 }
@@ -70,6 +70,7 @@ public class Player_Interaction : MonoBehaviour
         {
             if (interactTarget)
             {
+                Debug.Log(gameObject + " is not interactable");
                 interactTarget.isSelected = false;
                 interactTarget = null;
             }

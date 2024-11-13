@@ -6,7 +6,7 @@ public class Keys_Interactable : Interactables
 {
     public string keyID;
 
-    [SerializeField] private Player_Interaction player;
+    // [SerializeField] private Player_Interaction player;
 
     protected override void Awake()
     {
