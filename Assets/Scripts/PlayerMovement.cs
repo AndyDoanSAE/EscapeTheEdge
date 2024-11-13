@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
 
     private RaycastHit hitObject;
 
-    private Rigidbody rb;
+    // private Rigidbody rb;
     
     // Start is called before the first frame update
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        // rb = GetComponent<Rigidbody>();
     }
 
     // Fixed update every frame
