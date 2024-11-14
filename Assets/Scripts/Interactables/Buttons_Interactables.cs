@@ -28,8 +28,6 @@ public class Buttons_Interactables : Interactables
             outline.enabled = false;
             render.material.SetColor("_BaseColor", Color.green);
         }
-        // else if (isSelected)
-        //     outline.enabled = true;
         else
             outline.enabled = isSelected;
     }
