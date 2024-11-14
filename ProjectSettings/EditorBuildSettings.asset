@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test Scenes/Doors Test Scene.unity
+    path: Assets/Scenes/Test Scenes/Doors and Interaction Test Scene.unity
     guid: 371e0937f6c60bf49ae2fe85d8a9fb8e
   m_configObjects: {}
