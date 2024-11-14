@@ -2053,7 +2053,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelected: 0
   canOpen: 0
-  buttonsRequired: []
+  buttonsRequired:
+  - {fileID: 1724465122}
+  - {fileID: 367356027}
+  - {fileID: 918491021}
   activeButtons: 0
 --- !u!1 &857604671
 GameObject:
@@ -3733,7 +3736,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelected: 0
   canOpen: 0
-  buttonsRequired: []
+  buttonsRequired:
+  - {fileID: 1282953849}
+  - {fileID: 801163083}
   activeButtons: 0
 --- !u!1 &1392182045
 GameObject:
@@ -4150,7 +4155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelected: 0
   canOpen: 0
-  buttonsRequired: []
+  buttonsRequired:
+  - {fileID: 1735882907}
+  - {fileID: 225208231}
+  - {fileID: 149372377}
   activeButtons: 0
 --- !u!1 &1574458608
 GameObject:
@@ -4291,7 +4299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSelected: 0
   canOpen: 0
-  buttonsRequired: []
+  buttonsRequired:
+  - {fileID: 1902775171}
   activeButtons: 0
 --- !u!1 &1618501677
 GameObject:
