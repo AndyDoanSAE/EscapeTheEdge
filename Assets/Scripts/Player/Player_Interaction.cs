@@ -120,21 +120,6 @@ public class Player_Interaction : MonoBehaviour
             }
         }
         else 
-        {
-            // if (interactTarget)
-            // {
-            //     Debug.Log(gameObject + " is not interactable");
-            //     interactTarget.isSelected = false;
-            //     interactTarget = null;
-            // }
-            //
-            // if (doorTarget)
-            // {
-            //     doorTarget.isSelected = false;
-            //     doorTarget = null;
-            // }
-
             canInteract = false;
-        }
     }
 }
