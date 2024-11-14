@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Player_Interaction : MonoBehaviour
 {
     [Header("Tags")]
     [SerializeField] private string itemTag;
     [SerializeField] private string doorTag;
+    [SerializeField] private string keyTag;
     
     [Header("Interact Settings")]
     [SerializeField] private float interactDistance;
@@ -16,10 +18,17 @@ public class Player_Interaction : MonoBehaviour
     [Header("References")]
     [SerializeField] private Interactables interactTarget;
     [SerializeField] private Doors doorTarget;
+    [SerializeField] private Keys_Interactable keyTarget;
     [SerializeField] private Transform cameraPos;
+    [SerializeField] private Player_Inventory playerInventory;
     
     [Header("Checks")]
     public bool canInteract;
+
+    private void Awake()
+    {
+        playerInventory = GetComponent<Player_Inventory>();
+    }
 
     private void Update()
     {
@@ -34,7 +43,6 @@ public class Player_Interaction : MonoBehaviour
         {
             if (hitObject.transform.gameObject.CompareTag(itemTag))
             {
-                Debug.Log("Item in range");
                 interactTarget = hitObject.transform.gameObject.GetComponent<Interactables>();
                 canInteract = true;
                 interactTarget.isSelected = true;
@@ -51,9 +59,9 @@ public class Player_Interaction : MonoBehaviour
             }
             else
             {
-                Debug.Log(gameObject + " is not interactable");
                 if (interactTarget)
                 {
+                    Debug.Log(interactTarget + " is out of range");
                     interactTarget.isSelected = false;
                     interactTarget = null;
                 }
@@ -79,24 +87,52 @@ public class Player_Interaction : MonoBehaviour
                 if (doorTarget)
                 {
                     doorTarget.isSelected = false;
-                    doorTarget = null;
+                    doorTarget = null;  
+                }
+            }
+            
+            if (hitObject.transform.gameObject.CompareTag(keyTag))
+            {
+                keyTarget = hitObject.transform.gameObject.GetComponent<Keys_Interactable>();
+                keyTarget.isSelected = true;
+                canInteract = true;
+
+                if (canInteract)
+                {
+                    Debug.Log(keyTarget + " is interactable");
+                    if (Input.GetKeyDown(interactionKey))
+                    {
+                        Debug.Log("Obtained " + keyTarget.keyID);
+                        playerInventory.keysHeld.Add(keyTarget.keyID);
+                        keyTarget.isSelected = false;
+                        keyTarget.Despawn();
+                    }
+                }
+            }
+            else
+            {
+                if (keyTarget)
+                {
+                    Debug.Log(keyTarget + " is out of range");
+                    keyTarget.isSelected = false;
+                    keyTarget = null;  
                 }
             }
         }
         else 
         {
-            if (interactTarget)
-            {
-                Debug.Log(gameObject + " is not interactable");
-                interactTarget.isSelected = false;
-                interactTarget = null;
-            }
-
-            if (doorTarget)
-            {
-                doorTarget.isSelected = false;
-                doorTarget = null;
-            }
+            // if (interactTarget)
+            // {
+            //     Debug.Log(gameObject + " is not interactable");
+            //     interactTarget.isSelected = false;
+            //     interactTarget = null;
+            // }
+            //
+            // if (doorTarget)
+            // {
+            //     doorTarget.isSelected = false;
+            //     doorTarget = null;
+            // }
 
             canInteract = false;
         }

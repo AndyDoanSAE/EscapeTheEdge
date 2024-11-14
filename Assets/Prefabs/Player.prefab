@@ -306,12 +306,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemTag: Interactable
-  doorTag: Finish
+  doorTag: Door
+  keyTag: Key
   interactDistance: 5
   interactionKey: 101
   interactTarget: {fileID: 0}
   doorTarget: {fileID: 0}
+  keyTarget: {fileID: 0}
   cameraPos: {fileID: 1856441857688173631}
+  playerInventory: {fileID: 0}
   canInteract: 0
 --- !u!136 &9088846678958130918
 CapsuleCollider:

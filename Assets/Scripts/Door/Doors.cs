@@ -12,15 +12,14 @@ public class Doors : MonoBehaviour
     protected void Awake()
     {
         outline = GetComponent<Outline>();
-        outline.enabled = false;
-        isSelected = false;
-        canOpen = false;
     }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-
+        outline.enabled = false;
+        isSelected = false;
+        canOpen = false;
     }
 
     // Update is called once per frame
@@ -31,7 +30,7 @@ public class Doors : MonoBehaviour
 
     public virtual void Activation()
     {
-        
+        canOpen = true;
     }
 
     private void Selection()

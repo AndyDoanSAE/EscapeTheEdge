@@ -15,7 +15,7 @@ public class Interactables : MonoBehaviour
         isActive = false;
         isSelected = false;
         
-        outline = gameObject.AddComponent<Outline>();
+        outline = GetComponent<Outline>();
         outline.enabled = false;
         
         render = GetComponent<Renderer>();
@@ -35,10 +35,6 @@ public class Interactables : MonoBehaviour
 
     protected virtual void Selected()
     {
-        // outline.enabled = isSelected;
-        if (isSelected)
-            outline.enabled = true;
-        else
-            outline.enabled = false;
+        outline.enabled = isSelected;
     }
 }
