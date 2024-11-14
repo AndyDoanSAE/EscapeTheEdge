@@ -49,6 +49,15 @@ public class Player_Interaction : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                Debug.Log(gameObject + " is not interactable");
+                if (interactTarget)
+                {
+                    interactTarget.isSelected = false;
+                    interactTarget = null;
+                }
+            }
 
             if (hitObject.transform.gameObject.CompareTag(doorTag))
             {
@@ -63,6 +72,14 @@ public class Player_Interaction : MonoBehaviour
                         Debug.Log("Trying to open the door");
                         doorTarget.Activation();
                     }
+                }
+            }
+            else
+            {
+                if (doorTarget)
+                {
+                    doorTarget.isSelected = false;
+                    doorTarget = null;
                 }
             }
         }
