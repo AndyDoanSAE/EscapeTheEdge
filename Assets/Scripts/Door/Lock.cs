@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Lock : MonoBehaviour
 {
@@ -42,6 +43,6 @@ public class Lock : MonoBehaviour
 
     private void OnDestroy()
     {
-        throw new NotImplementedException();
+        RotateLock.Rotated -= CheckResults;
     }
 }
