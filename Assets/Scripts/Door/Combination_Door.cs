@@ -5,6 +5,7 @@ using UnityEngine;
 public class Combination_Door : Doors
 {
     [SerializeField] private List<Interactables> comboCriteria = new List<Interactables>();
+    [SerializeField] private List<bool> criteria = new List<bool>();
 
     [SerializeField] private int activeCriteria;
     
