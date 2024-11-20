@@ -19,25 +19,29 @@ public class Lock : MonoBehaviour
     {
         switch (wheelName)
         {
-            case "wheel1":
+            case "Lock 1":
                 currentCode[0] = number;
                 break;
             
-            case "wheel2":
+            case "Lock 2":
                 currentCode[1] = number;
                 break;
-                
-            case "wheel3":
+            
+            case "Lock 3":
                 currentCode[2] = number;
+                break;
+            
+            case "Lock 4":
+                currentCode[3] = number;
                 break;
         }
 
-        foreach (var wheel in wheelName)
-        {
-            currentCode[number] = number;
-        }
+        // foreach (var wheel in wheelName)
+        // {
+        //     currentCode[number] = number;
+        // }
 
-        if (currentCode[0] == unlockCode[0] && currentCode[1] == unlockCode[1] && currentCode[2] == unlockCode[2])
+        if (currentCode[0] == unlockCode[0] && currentCode[1] == unlockCode[1] && currentCode[2] == unlockCode[2] && currentCode[3] == unlockCode[3])
             Debug.Log("Door is unlocked!");
     }
 
