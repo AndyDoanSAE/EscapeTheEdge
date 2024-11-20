@@ -15,7 +15,7 @@ public class RotateLock : MonoBehaviour
     private void Start()
     {
         coroutineAllowed = true;
-        numberShown = 1;
+        numberShown = 0;
     }
 
     // Update is called once per frame
