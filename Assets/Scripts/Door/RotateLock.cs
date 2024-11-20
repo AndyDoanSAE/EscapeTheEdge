@@ -15,7 +15,7 @@ public class RotateLock : MonoBehaviour
     private void Start()
     {
         coroutineAllowed = true;
-        numberShown = 5;
+        numberShown = 1;
     }
 
     // Update is called once per frame
@@ -29,9 +29,9 @@ public class RotateLock : MonoBehaviour
     {
         coroutineAllowed = false;
 
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < 12; i++)
         {
-            transform.Rotate(0f, 0f, -3f);
+            transform.Rotate(0f, -3f, 0f);
             yield return new WaitForSeconds(0.01f);
         }
         
