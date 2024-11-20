@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class Combination_Door : Doors
 {
-    [SerializeField] private List<Interactables> comboCriteria = new List<Interactables>();
-    [SerializeField] private List<bool> criteria = new List<bool>();
-
-    [SerializeField] private int activeCriteria;
+    [SerializeField] private List<Lock> locksRequired = new List<Lock>();
+    [SerializeField] private int unlockedLocks;
     
-    // Start is called before the first frame update
-    protected override void Start()
+    public override void Activation()
     {
+        if (locksRequired.Count <= 0)
+            return;
         
-    }
+        foreach (Lock comboLock in locksRequired)
+        {
+            comboLock.GetComponent<Lock>();
 
-    // Update is called once per frame
-    protected override void Update()
-    {
+            if (comboLock.isUnlocked)
+                unlockedLocks++;
+        }
         
+        if (unlockedLocks < locksRequired.Count)
+        {
+            unlockedLocks = 0;
+            Debug.Log("Door is locked");
+        }
+        else
+        {
+            unlockedLocks = locksRequired.Count;
+            Debug.Log("Door is opened!");
+            Destroy(gameObject);
+        }
     }
 }

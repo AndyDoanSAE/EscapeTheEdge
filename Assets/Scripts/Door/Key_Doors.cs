@@ -28,17 +28,17 @@ public class Key_Doors : Doors
         var playerInventory = FindObjectOfType<Player_Inventory>();
         
         Debug.Log("Number of keys required: " + keysRequired.Count);
-        
-        if (keysRequired.Count > 0)
+
+        if (keysRequired.Count <= 0)
+            return;
+
+        foreach (string key in keysRequired)
         {
-            foreach (string key in keysRequired)
-            {
-                if (playerInventory.keysHeld.Contains(key))
-                    activeKeys++;
-            }
-            
-            Debug.Log("Number of correct keys held: " + activeKeys);
+            if (playerInventory.keysHeld.Contains(key))
+                activeKeys++;
         }
+
+        Debug.Log("Number of correct keys held: " + activeKeys);
         
         if (activeKeys < keysRequired.Count)
         {

@@ -12,19 +12,16 @@ public class Interactables : MonoBehaviour
 
     protected virtual void Awake()
     {
-        isActive = false;
-        isSelected = false;
-        
         outline = GetComponent<Outline>();
-        outline.enabled = false;
-        
         render = GetComponent<Renderer>();
     }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        
+        isActive = false;
+        isSelected = false;
+        outline.enabled = false;
     }
 
     // Update is called once per frame
@@ -35,10 +32,10 @@ public class Interactables : MonoBehaviour
 
     protected virtual void Selected()
     {
-        // outline.enabled = isSelected;
-        if (isSelected)
-            outline.enabled = true;
-        else
-            outline.enabled = false;
+        outline.enabled = isSelected;
+        // if (isSelected)
+        //     outline.enabled = true;
+        // else
+        //     outline.enabled = false;
     }
 }

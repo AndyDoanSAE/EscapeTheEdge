@@ -25,29 +25,29 @@ public class Button_Doors : Doors
 
     public override void Activation()
     {
-        if (buttonsRequired.Count > 0)
+        if (buttonsRequired.Count <= 0) 
+            return;
+        
+        foreach (Interactables button in buttonsRequired)
         {
-            foreach (Interactables button in buttonsRequired)
-            {
-                button.GetComponent<Interactables>();
+            button.GetComponent<Interactables>();
 
-                if (button.isActive)
-                    activeButtons++;
-            }
+            if (button.isActive)
+                activeButtons++;
+        }
 
-            Debug.Log("Number of active buttons: " + activeButtons);
+        Debug.Log("Number of active buttons: " + activeButtons);
 
-            if (activeButtons < buttonsRequired.Count)
-            {
-                activeButtons = 0;
-                Debug.Log("Door is locked");
-            }
-            else
-            {
-                activeButtons = buttonsRequired.Count;
-                Debug.Log("Door is opened!");
-                Destroy(gameObject);
-            }
+        if (activeButtons < buttonsRequired.Count)
+        {
+            activeButtons = 0;
+            Debug.Log("Door is locked");
+        }
+        else
+        {
+            activeButtons = buttonsRequired.Count;
+            Debug.Log("Door is opened!");
+            Destroy(gameObject);
         }
     }
 }
