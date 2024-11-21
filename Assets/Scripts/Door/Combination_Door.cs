@@ -6,7 +6,13 @@ public class Combination_Door : Doors
 {
     [SerializeField] private List<Lock> locksRequired = new List<Lock>();
     [SerializeField] private int unlockedLocks;
-    
+
+    protected override void Start()
+    {
+        base.Start();
+        unlockedLocks = 0;
+    }
+
     public override void Activation()
     {
         if (locksRequired.Count <= 0)
