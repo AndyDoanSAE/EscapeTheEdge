@@ -1,0 +1,18 @@
+# File produced by AccuTrans 3D
+
+newmtl Office_Cha
+  Ns 26.4
+  d 1.0
+  illum 2
+  Kd 0.4275 0.4078 0.4157
+  Ka 0.4275 0.4078 0.4157
+  Ks 0.898 0.898 0.898
+  map_Kd E:\BRUSH~17.jpg
+
+newmtl Office_Cha_1
+  Ns 77.2
+  d 1.0
+  illum 2
+  Kd 0.2275 0.2235 0.2431
+  Ka 0.2275 0.2235 0.2431
+  Ks 0.898 0.898 0.898
