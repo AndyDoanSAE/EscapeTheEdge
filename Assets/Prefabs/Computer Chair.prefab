@@ -80,6 +80,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: a1633e8fca2b2e54b9fdf0f8fdf9cfcd,
         type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3169355d687fec346bb608bd4ea0c23c, type: 2}
+    - target: {fileID: -7635826562936255635, guid: a1633e8fca2b2e54b9fdf0f8fdf9cfcd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29431a54cea72844a96d2e3cda7fdd48, type: 2}
+    - target: {fileID: -7635826562936255635, guid: a1633e8fca2b2e54b9fdf0f8fdf9cfcd,
+        type: 3}
       propertyPath: m_SelectedEditorRenderState
       value: 2
       objectReference: {fileID: 0}
